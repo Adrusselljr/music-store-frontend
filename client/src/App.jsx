@@ -1,15 +1,17 @@
 import React from 'react'
 import Layout from './componenets/Layout'
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import CustomThemeProvider from './componenets/CustomThemeProvider'
 
 function App() {
+    // return "hi"
     return (
-        <div className='App'>
+        <div>
 
-            <Layout>
-                Home Page
-            </Layout>
+            <CustomThemeProvider>
+                <Layout>
+                    Home Page
+                </Layout>
+            </CustomThemeProvider>
         
         </div>
     )
