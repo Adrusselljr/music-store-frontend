@@ -1,11 +1,18 @@
 import React from 'react'
 import '../App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-function Layout() {
+const Layout = props => {
+    const { children } = props
+
     return (
         <div>
         
-            <h1>Layout</h1>
+            <header><h1>This is the header</h1></header>
+
+            <div>
+                {children}
+            </div>
 
         </div>
     )
