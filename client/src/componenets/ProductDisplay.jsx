@@ -12,10 +12,13 @@ import { Box } from '@mui/system';
 import AddIcon from '@mui/icons-material/Add'
 
 function ProductDisplay(props) {
-    const { product: {title, description, brand, image} } = props
+    const { product: {title, description, brand, price, image} } = props
     return (
         <Card>
             <CardHeader
+            action= {
+                <Typography>${price / 100}</Typography>
+            }
             title={title}
             subheader={brand}
             />
