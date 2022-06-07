@@ -12,30 +12,30 @@ import { Box } from '@mui/system';
 import AddIcon from '@mui/icons-material/Add'
 
 function ProductDisplay(props) {
-    const { product: {title, description, brand, price, image} } = props
+    const { product: { title, description, brand, price, image } } = props
     return (
         <Card>
             <CardHeader
             action= {
-                <Typography>${price / 100}</Typography>
+                <Typography>${ price / 100 }</Typography>
             }
-            title={title}
-            subheader={brand}
+            title={ title }
+            subheader={ brand }
             />
             <CardMedia
                 component="img"
                 height="310"
-                image={image}
-                alt={title}
+                image={ image }
+                alt={ title }
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    {description}
+                    { description }
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
                 <Box display="flex" justifyContent="space-between" width="100%">
-                    <Button variant='outlined' startIcon={<AddIcon />}>Add to cart</Button>
+                    <Button variant='outlined' startIcon={ <AddIcon /> }>Add to cart</Button>
                     <IconButton aria-label="add to favorites">
                         <FavoriteIcon />
                     </IconButton>

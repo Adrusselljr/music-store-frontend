@@ -16,7 +16,7 @@ const Header = () => {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     My Music Store
                 </Typography>
-                <Box mr={2}>
+                <Box mr={ 2 }>
                     <Button variant="contained" color="primary">Sign In</Button>
                 </Box>
                 <IconButton

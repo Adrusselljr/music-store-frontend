@@ -16,8 +16,8 @@ const HomePage = () => {
 
     return (
         <Layout>
-            <Box width={1} display="flex" flexDirection="column" alignItems="center">
-                {productData.map(product => <Box width="375px" maxWidth="100%" m={4} key={product.id}><ProductDisplay product={product}/></Box>)}
+            <Box width={ 1 } display="flex" flexDirection="column" alignItems="center">
+                { productData.map(product => <Box width="375px" maxWidth="100%" m={4} key={product.id}><ProductDisplay product={product}/></Box>) }
             </Box>
         </Layout>
     )
