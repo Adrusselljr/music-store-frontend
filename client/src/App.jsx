@@ -1,8 +1,8 @@
 import React, { useState, createContext } from 'react';
 import CartPage from './componenets/pages/CartPage';
 import HomePage from './componenets/pages/HomePage';
-import { Button } from '@mui/material';
 import CustomThemeProvider from './componenets/CustomThemeProvider';
+import { Button } from '@mui/material';
 
 export const shoppingCartContext = createContext()
 
@@ -15,25 +15,22 @@ const App = () => {
         
         if(productFound){
         const newShoppingCart = shoppingCart.map(cartItem => {
-
             const newQuantity = cartItem.quantity + 1
             if(cartItem.id === productFound.id){
             return {...cartItem, quantity: cartItem.quantity + 1, total: newQuantity * cartItem.price}
             }
             return cartItem
-            })
+        })
         return setShoppingCart(newShoppingCart)
         }
-
-    const newShoppingCart = [...shoppingCart, {
-        id: product.id,
-        title:  product.title,
-        price:  product.price,
-        quantity: 1,
-        image:  product.image,
-        total: product.price
+        const newShoppingCart = [...shoppingCart, {
+            id: product.id,
+            title:  product.title,
+            price:  product.price,
+            quantity: 1,
+            image:  product.image,
+            total: product.price
         }]
-
         setShoppingCart(newShoppingCart)
     }
 
@@ -44,13 +41,13 @@ const App = () => {
 
     return (
         <CustomThemeProvider>
-            <shoppingCartContext.Provider value={ { shoppingCart, addToCart, removeFromCart } }>
+            <shoppingCartContext.Provider value={{ shoppingCart, addToCart, removeFromCart }}>
                 <Button variant='outlined' onClick={ () => setPage('homePage') }>Home Page</Button>
                 <Button variant='outlined' onClick={ () => setPage('cartPage') }>Cart Page</Button>
                 {
                     page === 'homePage'
-                    ? <HomePage addToCart={ addToCart } shoppingCart={ shoppingCart } />
-                    : <CartPage shoppingCart={ shoppingCart } addToCart={ addToCart } removeFromCart={ removeFromCart }/>
+                    ? <HomePage />
+                    : <CartPage />
                 }
             </shoppingCartContext.Provider>
         </CustomThemeProvider>

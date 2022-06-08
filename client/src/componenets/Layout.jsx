@@ -3,11 +3,11 @@ import Header from './Header';
 import { Box } from '@mui/material';
 
 const Layout = props => {
-    const { children, shoppingCart } = props
+    const { children } = props
 
     return (
-        <Box minWidth={320}>
-            <Header shoppingCart= {shoppingCart } />
+        <Box minWidth={ 320 }>
+            <Header />
 
             <div>
                 { children }

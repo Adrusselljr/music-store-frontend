@@ -26,7 +26,7 @@ const Header = () => {
                 color="inherit"
                 >
                 <Badge badgeContent={ itemQuantity } color="primary">
-                <ShoppingCartIcon />
+                    <ShoppingCartIcon />
                 </Badge>
             </IconButton>
             </Toolbar>
