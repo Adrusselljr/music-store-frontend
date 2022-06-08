@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import { shoppingCartContext } from '../context/shoppingCartContext';
+import React from 'react';
+import { useShoppingCart } from '../context/shoppingCartContext';
 import CartItem from '../componenets/CartItem';
 import { Box } from '@mui/material';
 import Layout from '../componenets/Layout';
 
 const CartPage = () => {
-    const { shoppingCart } = useContext(shoppingCartContext)
+    const { shoppingCart } = useShoppingCart()
 
     return (
         <Layout shoppingCart={ shoppingCart }>

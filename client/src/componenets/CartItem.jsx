@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useShoppingCart } from '../context/shoppingCartContext';
 import { Card, Box, CardMedia, Typography, IconButton } from '@mui/material'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { shoppingCartContext } from '../context/shoppingCartContext';
 
 const CartItem = props => {
     const { cartItem } = props
-    const { removeFromCart } = useContext(shoppingCartContext)
+    const { removeFromCart } = useShoppingCart()
 
     return (
         <Card>
