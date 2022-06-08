@@ -13,8 +13,8 @@ const App = () => {
         <CustomThemeProvider>
             <ShoppingCartProvidor>
                 <Box display="flex" justifyContent="space-around" alignItems="center">
-                    <Button variant='outlined' onClick={ () => setPage('homePage') }>Home Page</Button>
-                    <Button variant='outlined' onClick={ () => setPage('cartPage') }>Cart Page</Button>
+                    <Button variant='contained' onClick={ () => setPage('homePage') }>Home Page</Button>
+                    <Button variant='contained' onClick={ () => setPage('cartPage') }>Cart Page</Button>
                 </Box>
                 {
                     page === 'homePage'

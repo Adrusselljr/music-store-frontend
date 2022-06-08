@@ -13,7 +13,7 @@ import { Button } from '@mui/material';
 import { Box } from '@mui/system';
 
 const ProductDisplay = props => {
-    const { addToCart } = useShoppingCart
+    const { addToCart } = useShoppingCart()
     const { product } = props
     const { title, description, brand, price, image } = product
 

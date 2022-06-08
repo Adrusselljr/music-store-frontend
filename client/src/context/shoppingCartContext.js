@@ -35,8 +35,11 @@ const ShoppingCartProvidor = props => {
         const newShoppingCart = shoppingCart.filter(cartItem => cartItem.id !== productId)
         setShoppingCart(newShoppingCart)
     }
+
+    const emptyCart = () => setShoppingCart([])
+
     return (
-        <shoppingCartContext.Provider value={{ shoppingCart, addToCart, removeFromCart }}>
+        <shoppingCartContext.Provider value={{ shoppingCart, addToCart, removeFromCart, emptyCart }}>
             { children }
         </shoppingCartContext.Provider>
     )
