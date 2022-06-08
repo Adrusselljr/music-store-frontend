@@ -12,7 +12,7 @@ const CartPage = () => {
                 {shoppingCart.map(cartItem =>
                     <Box key={ cartItem.id } p={ 3 }>
                         <Box>
-                            { cartItem.title } - Qty: { cartItem.quantity } - ${ cartItem.price / 100 } total: ${ cartItem.total/100 }
+                            { cartItem.title } - Qty: { cartItem.quantity } - ${ cartItem.price / 100 } total: ${ cartItem.total / 100 }
                         </Box>        
                         <Box>
                             <Button variant='outlined' onClick={ () => removeFromCart(cartItem.id) } >Remove From cart</Button>
