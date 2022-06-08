@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { shoppingCartContext } from "../App";
+import { shoppingCartContext } from '../context/shoppingCartContext';
 import AddIcon from '@mui/icons-material/Add';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
