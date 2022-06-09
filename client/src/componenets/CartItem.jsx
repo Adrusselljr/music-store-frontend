@@ -11,7 +11,7 @@ const CartItem = props => {
         <Card>
             <Box display="flex">
                 <Box>
-                    <CardMedia component="img" sx={{ width: 50, height: 50, p: 1 }} image={ cartItem.image }/>
+                    <CardMedia component="img" sx={ { width: 50, height: 50, p: 1 } } image={ cartItem.image }/>
                 </Box>
                 <Box px={ 2 } display="flex" flexDirection="column" flexGrow={ 1 } justifyContent="center">
                     <Box>

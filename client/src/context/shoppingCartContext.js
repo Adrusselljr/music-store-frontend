@@ -10,10 +10,10 @@ const ShoppingCartProvidor = props => {
     const addToCart = product => {
         const productFound = shoppingCart.find(cartItem => cartItem.id === product.id)
         
-        if(productFound){
+        if(productFound) {
         const newShoppingCart = shoppingCart.map(cartItem => {
             const newQuantity = cartItem.quantity + 1
-            if(cartItem.id === productFound.id){
+            if(cartItem.id === productFound.id) {
             return {...cartItem, quantity: cartItem.quantity + 1, total: newQuantity * cartItem.price}
             }
             return cartItem
@@ -39,7 +39,7 @@ const ShoppingCartProvidor = props => {
     const emptyCart = () => setShoppingCart([])
 
     return (
-        <shoppingCartContext.Provider value={{ shoppingCart, addToCart, removeFromCart, emptyCart }}>
+        <shoppingCartContext.Provider value={ { shoppingCart, addToCart, removeFromCart, emptyCart } }>
             { children }
         </shoppingCartContext.Provider>
     )

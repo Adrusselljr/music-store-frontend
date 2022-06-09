@@ -25,19 +25,19 @@ const sampleUserData = {
     favorites: ['124'], // IDs of favorite Products
 }
 
-export const fetchProductData = () => new Promise((resolve) => {
+export const fetchProductData = () => new Promise(resolve => {
     setTimeout(() => {
         resolve(productList)
     }, 1)
 })
 
-export const logInUserRequest = () => new Promise((resolve) => {
+export const logInUserRequest = () => new Promise(resolve => {
     setTimeout(() => {
         resolve({ data: sampleUserData })
     }, 1000)
 })
 
-export const logOutUserRequest = () => new Promise((resolve) => {
+export const logOutUserRequest = () => new Promise(resolve => {
     setTimeout(() => {
         resolve('Sign out successfully')
     }, 1000)

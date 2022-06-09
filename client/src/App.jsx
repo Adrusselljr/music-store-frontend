@@ -24,9 +24,9 @@ const App = () => {
         <CustomThemeProvider>
             <ShoppingCartProvidor>
                 <Box m={1} display='flex' justifyContent='space-around'>
-                    <Button variant='contained' type="button" onClick={() => setPage('homePage')}>Home Page</Button>
-                    <Button variant='contained' type="button" onClick={() => setPage('cartPage')}>Cart Page</Button>
-                    <Button variant='contained' type="button" onClick={() => setPage('signInPage')}>Sign In Page</Button>
+                    <Button variant='contained' type="button" onClick={ () => setPage('homePage') }>Home Page</Button>
+                    <Button variant='contained' type="button" onClick={ () => setPage('cartPage') }>Cart Page</Button>
+                    <Button variant='contained' type="button" onClick={ () => setPage('signInPage') }>Sign In Page</Button>
                 </Box>
                 {getPage()}
             </ShoppingCartProvidor>
