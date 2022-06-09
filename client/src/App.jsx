@@ -3,24 +3,32 @@ import CartPage from './pages/CartPage';
 import HomePage from './pages/HomePage';
 import CustomThemeProvider from './componenets/CustomThemeProvider';
 import ShoppingCartProvidor from './context/shoppingCartContext';
-import { Button } from '@mui/material';
-import { Box } from '@mui/system';
+import SignInPage from './pages/SignInPage';
+import { Box, Button } from '@mui/material';
 
 const App = () => {
     const [page, setPage] = useState('homePage')
 
+    const getPage = () => {
+        switch (page) {
+            case 'cartPage':
+                return <CartPage />
+            case 'signInPage':
+                return <SignInPage />
+            default:
+                return <HomePage />
+        }
+    }
+
     return (
         <CustomThemeProvider>
             <ShoppingCartProvidor>
-                <Box display="flex" justifyContent="space-around" alignItems="center">
-                    <Button variant='contained' onClick={ () => setPage('homePage') }>Home Page</Button>
-                    <Button variant='contained' onClick={ () => setPage('cartPage') }>Cart Page</Button>
+                <Box m={1} display='flex' justifyContent='space-around'>
+                    <Button variant='contained' type="button" onClick={() => setPage('homePage')}>Home Page</Button>
+                    <Button variant='contained' type="button" onClick={() => setPage('cartPage')}>Cart Page</Button>
+                    <Button variant='contained' type="button" onClick={() => setPage('signInPage')}>Sign In Page</Button>
                 </Box>
-                {
-                    page === 'homePage'
-                    ? <HomePage />
-                    : <CartPage />
-                }
+                {getPage()}
             </ShoppingCartProvidor>
         </CustomThemeProvider>
     )
