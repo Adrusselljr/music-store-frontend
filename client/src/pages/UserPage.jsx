@@ -4,13 +4,13 @@ import { logInUserRequest } from '../dataFetching';
 import { Box, Button } from '@mui/material';
 
 const UserPage = () => {
-    const { user, removeUserData } = useUserData()
+    const { user, removeUser } = useUserData()
 
     const handleSignOut = () => {
         logInUserRequest()
         .then(response => {
             console.log('user sign out response: ', response)
-            removeUserData()
+            removeUser()
         })
     }
 

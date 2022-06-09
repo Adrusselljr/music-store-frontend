@@ -8,10 +8,10 @@ const UserDataProvider = props => {
     const [user, setUser] = useState([])
 
     const addUser = user => setUser(user)
-    const removeUserData = () => setUser([])
+    const removeUser = () => setUser([])
 
     return (
-        <userDataContext.Provider value={{ user, addUser, removeUserData }}>
+        <userDataContext.Provider value={{ user, addUser, removeUser }}>
             { children }
         </userDataContext.Provider>
     )
