@@ -15,7 +15,7 @@ const UserPage = () => {
     }
 
     return (
-        <Box m={4}>
+        <Box m={ 4 }>
             <Box>
                 <h1>Hi, { user.firstName }</h1>
                 <Button variant='contained' onClick={ handleSignOut }>Sign Out</Button>
