@@ -13,8 +13,6 @@ const Header = () => {
         return acc + cartItem.quantity
     }, 0)
 
-    console.log(user)
-
     return (
         <AppBar position="static" color="secondary">
             <Toolbar>
