@@ -4,8 +4,8 @@ export const shoppingCartContext = createContext()
 export const useShoppingCart = () => useContext(shoppingCartContext)
 
 const ShoppingCartProvidor = props => {
-    const [shoppingCart, setShoppingCart] = useState([])
     const { children } = props
+    const [shoppingCart, setShoppingCart] = useState([])
 
     const addToCart = product => {
         const productFound = shoppingCart.find(cartItem => cartItem.id === product.id)
@@ -24,9 +24,9 @@ const ShoppingCartProvidor = props => {
             id: product.id,
             title:  product.title,
             price:  product.price,
-            quantity: 1,
             image:  product.image,
-            total: product.price
+            total: product.price,
+            quantity: 1
         }]
         setShoppingCart(newShoppingCart)
     }
