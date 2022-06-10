@@ -1,11 +1,32 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 
 export const shoppingCartContext = createContext()
 export const useShoppingCart = () => useContext(shoppingCartContext)
 
+const ADD_TO_CART = 'ADD_TO_CART'
+const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+const EMPTY_CART = 'EMPTY_CART'
+
+const shoppingCartReducer = (state, action) => {
+    switch (action.type) {
+        case ADD_TO_CART:
+            return action.payload.shoppingCart
+        
+        case REMOVE_FROM_CART:
+            return action.payload.shoppingCart
+
+        case EMPTY_CART:
+            return []
+    
+        default:
+            return state
+    }
+}
+
 const ShoppingCartProvidor = props => {
     const { children } = props
-    const [shoppingCart, setShoppingCart] = useState([])
+    // const [shoppingCart, setShoppingCart] = useState([])
+    const [shoppingCart, dispatch] = useReducer(shoppingCartReducer, [])
 
     const addToCart = product => {
         const productFound = shoppingCart.find(cartItem => cartItem.id === product.id)
@@ -18,7 +39,9 @@ const ShoppingCartProvidor = props => {
             }
             return cartItem
         })
-        return setShoppingCart(newShoppingCart)
+        return dispatch({ type: ADD_TO_CART, payload: {
+            shoppingCart: newShoppingCart
+        } })
         }
         const newShoppingCart = [...shoppingCart, {
             id: product.id,
@@ -28,15 +51,21 @@ const ShoppingCartProvidor = props => {
             total: product.price,
             quantity: 1
         }]
-        setShoppingCart(newShoppingCart)
+        dispatch({ type: ADD_TO_CART, payload: {
+            shoppingCart: newShoppingCart
+        } })
     }
 
     const removeFromCart = productId => {
         const newShoppingCart = shoppingCart.filter(cartItem => cartItem.id !== productId)
-        setShoppingCart(newShoppingCart)
+        dispatch({ type: REMOVE_FROM_CART, payload: {
+            shoppingCart: newShoppingCart
+        } })
     }
 
-    const emptyCart = () => setShoppingCart([])
+    const emptyCart = () => {
+        dispatch({ type: EMPTY_CART })
+    }
 
     return (
         <shoppingCartContext.Provider value={{ shoppingCart, addToCart, removeFromCart, emptyCart }}>
