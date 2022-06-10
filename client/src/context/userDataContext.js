@@ -24,12 +24,12 @@ const UserDataProvider = props => {
     const [user, dispatch] = useReducer(userReducer)
 
     const addUser = user => {
-        dispatch({type: LOG_IN, payload: {
+        dispatch({ type: LOG_IN, payload: {
             user: user
         }})
     }
     const removeUser = () => {
-        dispatch({type: LOG_OUT})
+        dispatch({ type: LOG_OUT })
     }
 
     return (
