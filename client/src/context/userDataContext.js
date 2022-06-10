@@ -5,10 +5,10 @@ export const useUserData = () => useContext(userDataContext)
 
 const UserDataProvider = props => {
     const { children } = props
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState()
 
     const addUser = user => setUser(user)
-    const removeUser = () => setUser([])
+    const removeUser = () => setUser(undefined)
 
     return (
         <userDataContext.Provider value={{ user, addUser, removeUser }}>

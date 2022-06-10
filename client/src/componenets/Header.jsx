@@ -21,7 +21,7 @@ const Header = () => {
             </Typography>
             <Box mr={ 2 }>
                 {
-                    user.length === 0
+                    user === undefined
                     ? <Button variant="contained" color="primary">Sign In</Button>
                     : <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>Hi, { user.firstName }</Typography>
                 }

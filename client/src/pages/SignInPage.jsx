@@ -20,7 +20,7 @@ function SignInPage() {
     return (
         <Layout>
             {
-                user.length === 0
+                user === undefined
                 ? (
                     <Box p={ 4 }>
                         <h1>Sign in</h1>
