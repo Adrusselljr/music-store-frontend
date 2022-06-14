@@ -19,10 +19,9 @@ const productList = [
 
 const sampleUserData = {
     id: '007',
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john@email.com',
-    favorites: ['124'], // IDs of favorite Products
+    firstName: 'Aaron',
+    lastName: 'Russell',
+    email: 'adrusselljr@mail.com',
 }
 
 export const fetchProductData = () => new Promise(resolve => {
