@@ -1,15 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useShoppingCart } from '../context/shoppingCartContext';
-import { useUserData } from '../context/userDataContext'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { AppBar, Badge, Button, IconButton, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import '../index.css';
 
 const Header = () => {
-    const { shoppingCart } = useShoppingCart()
-    const { user } = useUserData()
+    const user = useSelector((state) => state.user);
+    const shoppingCart = useSelector((state) => state.shoppingCart);
 
     const itemQuantity = shoppingCart.reduce((acc, cartItem) => {
         return acc + cartItem.quantity
@@ -25,12 +24,14 @@ const Header = () => {
                         </Typography>
                     </Link>
                 </Box>
-                <Box mr={ 2 }>
-                    {
-                        user === undefined
-                        ? <Link to="/sign-in"><Button variant="contained" color="primary">Sign In</Button></Link>
-                        : <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>Hi, { user.firstName }</Typography>
-                    }
+                <Box mr={2}>
+                    <Link to="/sign-in">
+                        {
+                            !user
+                            ? <Button variant="contained" color="primary">Sign In</Button>
+                            : <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>Hi, { user.firstName }</Typography>
+                            }
+                    </Link>
                 </Box>
                 <IconButton
                     size="large"

@@ -1,11 +1,14 @@
 import React from 'react'
-import { useShoppingCart } from '../context/shoppingCartContext';
+import { useDispatch } from 'react-redux';
+// import { useShoppingCart } from '../context/shoppingCartContext';
 import { Card, Box, CardMedia, Typography, IconButton } from '@mui/material'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
+const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+
 const CartItem = props => {
     const { cartItem } = props
-    const { removeFromCart } = useShoppingCart()
+    const dispatch = useDispatch()
 
     return (
         <Card>
@@ -27,11 +30,11 @@ const CartItem = props => {
                 </Box>
                 <Box px={ 2 } display="flex" flexDirection="column" justifyContent="center">
                     <Typography fontWeight="bold">
-                            x{ cartItem.quantity }
+                        x{ cartItem.quantity }
                     </Typography>
                 </Box>
                 <Box px={ 2 } display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-                    <IconButton onClick={ () => removeFromCart(cartItem.id) }>
+                    <IconButton onClick={ () => dispatch({ type: REMOVE_FROM_CART, payload: { productId: cartItem.id } }) }>
                         <DeleteForeverIcon/>
                     </IconButton>
                 </Box>

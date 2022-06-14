@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
-import { useUserData } from '../context/userDataContext';
 import Layout from '../componenets/Layout';
 import UserPage from './UserPage';
 import { logInUserRequest } from '../dataFetching';
 import { Box, Button, TextField } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+
+const LOG_IN = 'LOG_IN'
 
 function SignInPage() {
-    const { user, addUser } = useUserData()
     const [signInForm, setSignInForm] = useState({ email: '', password: '' })
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.user)
 
     const onSubmit = () => {
         logInUserRequest()
         .then(response => {
             console.log('user sign in response: ', response)
-            addUser(response.data)
+            dispatch({ type: LOG_IN, payload: { user: response.data } })
         })
     }
 
     return (
         <Layout>
             {
-                user === undefined
+                !user
                 ? (
                     <Box p={ 4 }>
                         <h1>Sign in</h1>

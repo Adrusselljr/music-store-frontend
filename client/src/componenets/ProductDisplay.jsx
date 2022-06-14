@@ -1,5 +1,5 @@
 import React from 'react';
-import { useShoppingCart } from '../context/shoppingCartContext';
+import { useDispatch } from 'react-redux';
 import AddIcon from '@mui/icons-material/Add';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -12,8 +12,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Button } from '@mui/material';
 import { Box } from '@mui/system';
 
+const ADD_TO_CART = 'ADD_TO_CART'
+
 const ProductDisplay = props => {
-    const { addToCart } = useShoppingCart()
+    const dispatch = useDispatch()
     const { product } = props
     const { title, description, brand, price, image } = product
 
@@ -37,7 +39,7 @@ const ProductDisplay = props => {
             </CardContent>
             <CardActions disableSpacing>
                 <Box display="flex" justifyContent="space-between" width="100%">
-                    <Button variant="outlined" startIcon={ <AddIcon /> } onClick={ () => addToCart(product) }>Add to cart</Button>
+                    <Button variant="outlined" startIcon={ <AddIcon /> } onClick={ () => dispatch({ type: ADD_TO_CART, payload: { product: product } }) }>Add to cart</Button>
                     <IconButton aria-label="add to favorites">
                         <FavoriteIcon />
                     </IconButton>
