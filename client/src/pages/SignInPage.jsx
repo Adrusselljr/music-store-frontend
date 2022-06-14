@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../componenets/Layout';
 import UserPage from './UserPage';
 import { logInUserRequest } from '../dataFetching';
 import { Box, Button, TextField } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
 
 const LOG_IN = 'LOG_IN'
 

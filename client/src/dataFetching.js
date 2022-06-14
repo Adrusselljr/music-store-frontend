@@ -38,6 +38,6 @@ export const logInUserRequest = () => new Promise(resolve => {
 
 export const logOutUserRequest = () => new Promise(resolve => {
     setTimeout(() => {
-        resolve('Sign out successfully')
+        resolve('Sign out successful')
     }, 1000)
 })

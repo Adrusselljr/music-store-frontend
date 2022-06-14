@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import CartItem from '../componenets/CartItem';
 import Layout from '../componenets/Layout';
 import { Box, Button } from '@mui/material';
@@ -15,11 +16,11 @@ const CartPage = () => {
     return (
         <Layout>
             <Box width={ 1 } display="flex" flexDirection="column" alignItems="center">
-                {shoppingCart.map(cartItem =>
+                { shoppingCart.map(cartItem =>
                     <Box key={ cartItem.id } p={ 3 } width="100%" maxWidth="500px">
                         <CartItem cartItem={ cartItem } />
                     </Box>
-                )}
+                ) }
                 <Box>
                     <Box mb={ 3 }>
                         <Button fullWidth variant='contained'>Checkout</Button>
@@ -28,7 +29,7 @@ const CartPage = () => {
                         <Button fullWidth variant='contained' startIcon={<ReplayIcon />} onClick={() => dispatch({ type: EMPTY_CART }) }>Empty Cart</Button>
                     </Box>
                     <Box mb={ 3 }>
-                        <Button fullWidth variant='contained' startIcon={<HomeIcon />}>Home</Button>
+                        <Link to='/'><Button fullWidth variant='contained' startIcon={<HomeIcon />}>Home</Button></Link>
                     </Box>
                 </Box>
             </Box>

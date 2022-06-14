@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { AppBar, Badge, Button, IconButton, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { AppBar, Badge, Button, IconButton, Toolbar, Typography } from "@mui/material";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import '../index.css';
 
 const Header = () => {

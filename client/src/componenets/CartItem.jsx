@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-// import { useShoppingCart } from '../context/shoppingCartContext';
 import { Card, Box, CardMedia, Typography, IconButton } from '@mui/material'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
