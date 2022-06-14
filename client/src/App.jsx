@@ -31,9 +31,9 @@ const shoppingCartReducer = (shoppingCart = [], action) => {
             }
             const newShoppingCart = [...shoppingCart, {
                 id: product.id,
-                title:  product.title,
-                price:  product.price,
-                image:  product.image,
+                title: product.title,
+                price: product.price,
+                image: product.image,
                 total: product.price,
                 quantity: 1
             }]
@@ -42,7 +42,6 @@ const shoppingCartReducer = (shoppingCart = [], action) => {
 
         case REMOVE_FROM_CART: {
             const { productId } = action.payload
-
             const newShoppingCart = shoppingCart.filter(cartItem => cartItem.id !== productId)
             return newShoppingCart
             }
