@@ -1,19 +1,16 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useUser } from '../reduxStore/userState';
 import { logInUserRequest } from '../dataFetching';
 import { Box, Button } from '@mui/material';
 
-const LOG_OUT = 'LOG_OUT'
-
 const UserPage = () => {
-    const dispatch = useDispatch()
-    const user = useSelector(state => state.user)
+    const { user, logOut } = useUser()
 
     const handleSignOut = () => {
         logInUserRequest()
         .then(response => {
             console.log('user sign out response: ', response)
-            dispatch({ type: LOG_OUT })
+            logOut()
         })
     }
 

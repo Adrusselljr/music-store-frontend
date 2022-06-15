@@ -1,4 +1,5 @@
 import React from 'react';
+import { useUser } from '../reduxStore/userState';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Box } from "@mui/system";
@@ -7,8 +8,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import '../index.css';
 
 const Header = () => {
-    const user = useSelector((state) => state.user);
-    const shoppingCart = useSelector((state) => state.shoppingCart);
+    const { user } = useUser()
+    const shoppingCart = useSelector((state) => state.shoppingCart)
 
     const itemQuantity = shoppingCart.reduce((acc, cartItem) => {
         return acc + cartItem.quantity

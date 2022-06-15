@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useUser } from '../reduxStore/userState';
 import Layout from '../componenets/Layout';
 import UserPage from './UserPage';
 import { logInUserRequest } from '../dataFetching';
 import { Box, Button, TextField } from '@mui/material';
 
-const LOG_IN = 'LOG_IN'
-
 function SignInPage() {
+    const { user, logIn } = useUser()
     const [signInForm, setSignInForm] = useState({ email: '', password: '' })
-    const dispatch = useDispatch()
-    const user = useSelector(state => state.user)
 
     const onSubmit = () => {
         logInUserRequest()
         .then(response => {
             console.log('user sign in response: ', response)
-            dispatch({ type: LOG_IN, payload: { user: response.data } })
+            logIn(response.data)
         })
     }
 
