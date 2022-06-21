@@ -7,10 +7,9 @@ import { Box } from '@mui/material';
 const HomePage = () => {
     const [productData, setProductData] = useState([])
 
-    // This is what runs after the first render:
     useEffect(() => {
         fetchProductData()
-        .then(data => setProductData(data))
+        .then(response => setProductData(response.data))
         .catch(error => console.log('error: ', error))
     }, [])
 
